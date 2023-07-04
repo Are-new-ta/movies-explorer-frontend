@@ -6,7 +6,7 @@ function Portfolio() {
       <h4 className='portfolio__title'>Портфолио</h4>
       <ul className='portfolio__list'>
         <li className='portfolio__item'>
-          <a href='https://github.com/Are-new-ta/how-to-learn/'
+          <a href='https://github.com/Are-new-ta/how-to-learn'
             className='portfolio__link'
             target='_blank'
             rel='noreferrer'>

@@ -1,3 +1,4 @@
+
 import { Link, useLocation } from "react-router-dom";
 import './Navigation.css';
 import cn from 'classnames';
@@ -22,18 +23,23 @@ function Navigation({ isOpenMenu, setIsOpenMenu }) {
     'navigation__link_active': pathname === '/saved-movies',
   });
 
-  return (
-    <div className={navigationClassNames}>
-      <nav className='navigation__content'>
-        <div className='navigation__container'>
-          <Link to='/' className={LinkClassNames}>Главная</Link>
-          <Link to='/movies' className={moviesLinkClassNames}>Фильмы</Link>
-          <Link to='/saved-movies' className={savedMoviesLinkClassNames}> Сохранённые фильмы </Link>
-        </div>
-        <Link to='/profile' className='navigation__profile-link'>Аккаунт</Link>
-      </nav>
-    </div>
-  )
+  if (isOpenMenu) {
+    return (
+      <div className={navigationClassNames}>
+        <nav className='navigation__content'>
+          <div className='navigation__container'>
+            <Link to='/' className={LinkClassNames}>Главная</Link>
+            <Link to='/movies' className={moviesLinkClassNames}>Фильмы</Link>
+            <Link to='/saved-movies' className={savedMoviesLinkClassNames}> Сохранённые фильмы </Link>
+          </div>
+          <Link to='/profile' className='navigation__profile-link navigation__profile-logo'>Аккаунт</Link>
+        </nav>
+      </div>
+    )
+  }
+
+  return null;
 };
 
 export default Navigation;
+

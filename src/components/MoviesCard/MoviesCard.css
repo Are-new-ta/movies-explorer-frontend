@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: fit-content;
+  height: 281px;
   background-color: #222222;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
@@ -70,10 +70,6 @@
   border: none;
 }
 
-/* .card__button-like_type_delete:hover {
-  background-image: url('../../images/d4.svg');
-} */
-
 .card__button-like:hover {
   opacity: 0.8;
 }
@@ -84,4 +80,16 @@
   font-size: 10px;
   line-height: 12px;
   color: #8B8B8B;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    height: fit-content;
+  }
 }

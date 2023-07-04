@@ -3,9 +3,9 @@ import './NavTab.css';
 
 function NavTab() {
   const links = [
-    { label: "О проекте", anchor: "#project" },
+    { label: "О проекте", anchor: "#about-project" },
     { label: "Технологии", anchor: "#technologies" },
-    { label: "Студент", anchor: "#student" },
+    { label: "Студент", anchor: "#about-me" },
   ];
 
   return (

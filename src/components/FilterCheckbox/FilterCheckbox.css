@@ -58,7 +58,7 @@
   transform: translateX(16px);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .filter {
     margin-top: 30px;
   }

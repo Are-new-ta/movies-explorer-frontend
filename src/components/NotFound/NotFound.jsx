@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './NotFound.css';
 
 function NotFound() {
+
+  const navigate = useNavigate();
+
   return (
-    <div className='not-found'>
-      <div className="not-found__container">
-        <p className="not-found__title">404</p>
-        <p className="not-found__description">Страница не найдена</p>
-      </div>
-      <Link to="/" className="not-found__link">Назад</Link>
-    </div>
+    <main >
+      <section className='not-found'>
+        <div className="not-found__container">
+          <h3 className="not-found__title">404</h3>
+          <p className="not-found__description">Страница не найдена</p>
+        </div>
+        <button className='not-found__link' type='button' onClick={() => navigate('/')}>Назад</button>
+      </section>
+    </main>
   )
 }
 
 export default NotFound;
+
 
