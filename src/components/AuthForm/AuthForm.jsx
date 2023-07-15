@@ -33,10 +33,8 @@ function AuthForm({ name, title, buttonText, link, linkText, registrationText, c
       <form
         className='form'
         name={`form-${name}`}
-        action=''
-        method=''
-        onSubmit={onSubmit}
-      >
+        onSubmit={onSubmit}>
+
         {children}
 
         <button
@@ -53,6 +51,3 @@ function AuthForm({ name, title, buttonText, link, linkText, registrationText, c
 };
 
 export default AuthForm;
-
-
-

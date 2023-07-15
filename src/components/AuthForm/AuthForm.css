@@ -29,6 +29,7 @@
   font-size: 24px;
   line-height: 29px;
   margin: 0 0 40px;
+  letter-spacing: 0.025em;
 }
 
 .form {
@@ -98,6 +99,7 @@
   background: #4285F4;
   border: none;
   border-radius: 3px;
+  letter-spacing: 0.04em;
   transition: opacity .3s linear;
   cursor: pointer;
 }
@@ -119,6 +121,7 @@
   font-size: 12px;
   line-height: 15px;
   color: #8B8B8B;
+  letter-spacing: 0.04em;
 }
 
 .auth-form__link {
@@ -206,12 +209,12 @@
     font-size: 14px;
     line-height: 17px;
     margin-top: 15px;
+    letter-spacing: 0.04em;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .auth-form {
-    height: 100vh;
     padding: 70px 186px 275px;
   }
 
@@ -221,5 +224,9 @@
 
   .auth-form__registration-text {
     margin-bottom: 70px;
+  }
+
+  .form__input {
+    margin: 12px 0 0;
   }
 }

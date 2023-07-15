@@ -24,11 +24,11 @@ function Profile() {
           <div className='profile__container'>
             <div className='profile__line'>
               <p className='profile__text'>Имя</p>
-              <p className='profile__text profile__text_type_s'>{userName}</p>
+              <p className='profile__text profile__text_type_s'>{userName || ''}</p>
             </div>
             <div className='profile__line'>
               <p className='profile__text'>E-mail</p>
-              <p className='profile__text profile__text_type_s'>{email}</p>
+              <p className='profile__text profile__text_type_s'>{email || ''}</p>
             </div>
             <div className='profile__nav'>
               <button type='button' className='profile__edit-button' onClick={handleEditBtnClick}>Редактировать</button>
@@ -42,3 +42,5 @@ function Profile() {
 };
 
 export default Profile;
+
+

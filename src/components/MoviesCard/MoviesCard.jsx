@@ -47,7 +47,7 @@ function MoviesCard({ movie }) {
       <div className='card__info'>
         <div className='card__container'>
 
-          <h3 className='card__title'>{nameRU}</h3>
+          <h2 className='card__title'>{nameRU}</h2>
 
           <button type='button'
             className={buttonClassNames}

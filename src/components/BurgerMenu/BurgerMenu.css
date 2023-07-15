@@ -70,8 +70,7 @@
 
 @media screen and (max-width: 480px) {
   .burger-menu_close {
-    margin-right: 4px;
-    margin-bottom: 19px;
+    padding: 0 0 20px 8px;
   }
 }
 
@@ -95,6 +94,10 @@
   .burger-menu__line::after {
     width: 28px;
     height: 3px;
+  }
+
+  .burger-menu_close {
+    padding: 0 0 0 22px;
   }
 }
 

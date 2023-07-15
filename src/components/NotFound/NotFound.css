@@ -1,65 +1,74 @@
- .not-found {
-   position: relative;
-   display: flex;
-   width: 100%;
-   height: 100vh;
-   align-items: center;
-   justify-content: center;
-   font-weight: 400;
-   text-align: center;
-   color: #FFFFFF;
- }
+  .not-found {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 246px 0 60px;
+  }
 
- .not-found__description {
-   margin: 10px 0 0;
-   font-size: 12px;
-   line-height: 15px;
- }
+  .not-found__button {
+    color: #4285F4;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 175px 0 0;
+    transition: opacity .4s linear;
+    cursor: pointer;
+  }
 
- .not-found__title {
-   margin: 0;
-   font-size: 80px;
-   line-height: 97px;
- }
+  .not-found__button:hover {
+    opacity: .6;
+  }
 
- .not-found__link {
-   position: absolute;
+  .not-found__header {
+    font-size: 140px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.07em;
+  }
 
-   bottom: 60px;
-   font-size: 12px;
-   line-height: 15px;
-   text-decoration: none;
-   color: #4285F4;
-   transition: opacity .3s linear;
- }
+  .not-found__text {
+    font-size: 16px;
+    margin: 0;
+  }
 
- .not-found__link:hover {
-   opacity: 0.7;
- }
+  @media screen and (min-width: 768px) {
+    .not-found {
+      padding: 485px 0 222px;
+    }
 
- @media screen and (min-width: 768px) {
-   .not-found__container {
-     padding-bottom: 15px;
-   }
+    .not-found__text {
+      margin-top: 65px;
+    }
+  }
 
-   .not-found__title {
-     font-size: 140px;
-     line-height: 169px;
-   }
+  @media screen and (max-width: 544px) {
+    .not-found {
+      padding: 329px 0 30px;
+    }
 
-   .not-found__description {
-     font-size: 16px;
-     line-height: 19px;
-   }
+    .not-found__header {
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: 0.07em;
+    }
 
-   .not-found__link {
-     font-size: 14px;
-     line-height: 17px;
-   }
- }
+    .not-found__text {
+      font-size: 12px;
+    }
 
- @media screen and (min-width: 1280px) {
-   .not-found__link {
-     bottom: 60px;
-   }
- }
+    .not-found__button {
+      font-size: 12px;
+      margin: 265px 0 0;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .not-found {
+      padding: 325px 0 0;
+    }
+
+    .not-found__text {
+      margin-top: 65px;
+    }
+  }

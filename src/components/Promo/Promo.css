@@ -24,6 +24,7 @@
   line-height: 58px;
   text-align: center;
   color: #FFFFFF;
+  letter-spacing: -0.01em;
 }
 
 @media screen and (max-width: 1279px) {
@@ -54,6 +55,7 @@
     max-width: 650px;
     font-size: 40px;
     line-height: 52px;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -61,11 +63,11 @@
   .promo__title {
     font-size: 29px;
     line-height: 37px;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.01em;
   }
 
   .promo__wrapper {
     margin-top: 14px;
-    padding-bottom: 17px;
+    padding-bottom: 18px;
   }
 }

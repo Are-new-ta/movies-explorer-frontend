@@ -8,6 +8,8 @@ function FilterCheckbox({ isShortFilm, setIsShotFilm }) {
           className='filter__input'
           onClick={() => setIsShotFilm(!isShortFilm)}
           type='filter'
+          name='filter'
+          id='filter'
           checked={isShortFilm} />
         <span className='filter__toogle' />
         <span className='filter__title'>Короткометражки</span>

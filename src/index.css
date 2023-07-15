@@ -34,35 +34,19 @@ li {
   padding: 0;
 }
 
-input :focus {
+input:focus {
   outline: 1px solid #4285f4;
 }
 
 button,
 [type=button],
-[type=reset],
+/* [type=reset], */
 [type=submit] {
   -webkit-appearance: button;
 }
 
-button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
 button,
-input[type="submit"],
-input[type="reset"] {
+input[type="submit"] {
   background: none;
   color: inherit;
   border: none;

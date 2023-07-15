@@ -23,21 +23,22 @@ function Register({ onSubmit }) {
         buttonText='Зарегистрироваться'
         link='signin'
         linkText='Войти'
-        registrationText='Ещё не зарегистрированы?'
+        registrationText='Уже зарегистрированы?'
         onSubmit={handleSubmit}
         isValid={isValid} >
         <label className='form__label' htmlFor='name'>
           Имя
           <input
             className='form__input'
+            value={values.userName || ''}
+            onChange={handleChange}
+            placeholder='Введите Имя'
             name='userName'
             type='text'
             id='name'
             minLength='2'
             maxLength='30'
-            placeholder='Введите Имя'
-            value={values.userName || ''}
-            onChange={handleChange}
+            autoComplete='on'
             required />
 
           <span className={`form__error  ${!isValid ? 'form__error_type_active' : ''} `}
@@ -47,16 +48,17 @@ function Register({ onSubmit }) {
         <label className='form__label' htmlFor='email'>
           E-mail
           <input
+            className='form__input'
+            value={values.email || ''}
+            onChange={handleChange}
+            placeholder='Введите E-mail'
             type='email'
             name='email'
             id='email'
-            className='form__input'
             minLength='2'
             maxLength='30'
-            required
-            placeholder='Введите E-mail'
-            value={values.email || ''}
-            onChange={handleChange} />
+            autoComplete='on'
+            required />
 
           <span className={`form__error  ${!isValid ? 'form__error_type_active' : ''} `}
             id="email-error">{error.email}</span>
@@ -65,15 +67,16 @@ function Register({ onSubmit }) {
         <label className='form__label' htmlFor='password'>
           Пароль
           <input
+            className='form__input'
+            value={values.password || ''}
+            onChange={handleChange}
+            placeholder='Введите пароль'
             type='password'
             name='password'
             id='password'
             minLength='6'
             maxLength='30'
-            className='form__input'
-            placeholder='Введите пароль'
-            value={values.password || ''}
-            onChange={handleChange}
+            autoComplete='off'
             required />
 
           <span className={`form__error  ${!isValid ? 'form__error_type_active' : ''} `}

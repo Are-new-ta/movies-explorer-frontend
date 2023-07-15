@@ -10,8 +10,8 @@
 }
 
 .nav-tab__link {
-  width: calc(82px + 23.8 * (100vw - 320px) / 480);
-  height: calc(26px + 17 * (100vw - 320px) / 480);
+  width: calc(84px + 23.8 * (100vw - 320px) / 480);
+  height: calc(28px + 17 * (100vw - 320px) / 480);
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -37,11 +37,17 @@
   .nav-tab__link {
     font-size: 12px;
     line-height: 16px;
+    width: calc(80px + 23.8 * (100vw - 320px) / 480);
+    height: calc(24px + 17 * (100vw - 320px) / 480);
+    margin-right: 3px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .nav-tab__link {
+    width: calc(80px + 23.8 * (100vw - 320px) / 480);
+    height: calc(24px + 17 * (100vw - 320px) / 480);
+    margin-right: 3px;
     font-size: 12px;
     line-height: 16px;
     color: #FFFFFF;
@@ -52,4 +58,5 @@
     background-color: #303030;
     border-radius: 10px;
   }
+
 }

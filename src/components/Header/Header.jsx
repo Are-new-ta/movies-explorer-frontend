@@ -33,13 +33,15 @@ function Header() {
         {loggedIn
           ?
           <>
-            <nav className='header__nav-wrapper'>
-              <Link to='/movies' className={cn('header__nav-link', 'header__nav-wrapper-link')}>Фильмы</Link>
-              <Link to='/saved-movies' className={cn('header__nav-link', 'header__nav-wrapper-link', {
-                'navigation__link_active': pathname === '/saved-movies',
+            <nav className='header-nav'>
+              <Link to='/movies' className={cn('header-nav__visible', 'header-nav__link', {
+                'header-nav__link_active': pathname === '/movies',
+              })}>Фильмы</Link>
+              <Link to='/saved-movies' className={cn('header-nav__visible', 'header-nav__link', {
+                'header-nav__link_active': pathname === '/saved-movies',
               })}> Сохранённые фильмы </Link>
             </nav>
-            <Link to='/profile' className={cn('header__nav-link', 'header__profile-logo')}>Аккаунт</Link>
+            <Link to='/profile' className={cn('header-nav__visible', 'header-nav__profile-logo')}>Аккаунт</Link>
 
             <Navigation
               isOpenMenu={isOpenMenu}
@@ -57,5 +59,3 @@ function Header() {
 };
 
 export default Header;
-
-
