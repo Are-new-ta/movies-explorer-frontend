@@ -1,17 +1,17 @@
 import { useState, useCallback } from "react";
 
-export function useFormAndValidation() {
+function useFormAndValidation() {
 
   // Стейт, в котором содержится значение инпута
   const [values, setValues] = useState({});
-  const [error, setError] = useState({});
-  const [isValid, setIsValid] = useState(true);
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
 
   // Обработчик изменения инпута обновляет стейт
   function handleChange(e) {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    setError({ ...error, [name]: e.target.validationMessage });
+    setErrors({ ...errors, [name]: e.target.validationMessage });
     setIsValid(e.target.closest('form').checkValidity());
   }
 
@@ -21,9 +21,58 @@ export function useFormAndValidation() {
     updatedError = {},
     updatedIsValid = false) => {
     setValues(updatedValues);
-    setError(updatedError);
+    setErrors(updatedError);
     setIsValid(updatedIsValid);
-  }, [setValues, setError, setIsValid]);
+  }, [setValues, setErrors, setIsValid]);
 
-  return { values, error, isValid, setValues, handleChange, resetForm }
+  return { values, errors, isValid, setValues, handleChange, resetForm, setErrors }
 }
+
+export default useFormAndValidation;
+
+// другая версия валидации
+// import { useState, useCallback } from 'react';
+// import { VALIDATION } from '../utils/const';
+
+// const useFormAndValidation = ({ initialValues } = {}) => {
+//   const [values, setValues] = useState(initialValues || {});
+//   const [errors, setErrors] = useState({});
+//   const [isValid, setIsValid] = useState(false);
+
+//   const handleChange = (e) => {
+//     const target = e.target;
+//     const name = target.name;
+//     const value = target.value;
+
+//     switch (name) {
+//       case 'username':
+//         target.validity.patternMismatch
+//           ? target.setCustomValidity(VALIDATION.username.message)
+//           : target.setCustomValidity('')
+//         break;
+//       case 'email':
+//         target.validity.patternMismatch
+//           ? target.setCustomValidity(VALIDATION.email.message)
+//           : target.setCustomValidity('')
+//         break;
+//       default: target.setCustomValidity('')
+//     }
+
+//     setValues({ ...values, [name]: value });
+//     setErrors({ ...errors, [name]: target.validationMessage });
+//     setIsValid(target.closest('form').checkValidity());
+//   };
+
+//   const resetForm = useCallback(
+//     (newValues = {}, newErrors = {}, newIsValid = false) => {
+//       setValues(newValues);
+//       setErrors(newErrors);
+//       setIsValid(newIsValid);
+//     },
+//     [setValues, setErrors, setIsValid]
+//   );
+
+//   return { values, setValues, handleChange, errors, isValid, setIsValid, resetForm };
+// }
+
+// export default useFormAndValidation;

@@ -114,6 +114,10 @@
   cursor: auto;
 }
 
+.form__button-submit_disabled:hover {
+  opacity: 1;
+}
+
 .auth-form__registration-text {
   max-width: 396px;
   margin: 14px 0 0;

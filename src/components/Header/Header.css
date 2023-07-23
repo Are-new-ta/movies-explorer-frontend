@@ -39,6 +39,11 @@
   margin: auto 0 0;
   text-decoration: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.header-nav__link :hover {
+  opacity: 0.8;
 }
 
 .header__logo-link {
@@ -66,6 +71,11 @@
   padding: 21px 13px 8px 0;
   text-decoration: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.header-nav__profile-logo :hover {
+  opacity: 0.8;
 }
 
 .header-nav__profile-logo::before {

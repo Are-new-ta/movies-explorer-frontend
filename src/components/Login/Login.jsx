@@ -1,14 +1,15 @@
 import AuthForm from '../AuthForm/AuthForm';
 import './Login.css';
-import { useFormAndValidation } from "../../hooks/useFormAndValidation";
+import { VALIDATION, EMAIL_PATTERN, PASSWORD_PATTERN } from '../../utils/const';
+import useFormAndValidation from "../../hooks/useFormAndValidation";
 
-function Login({ onSubmit }) {
+function Login({ isLoading, handleLogin }) {
 
-  const { values, error, isValid, handleChange } = useFormAndValidation();
+  const { values, errors, isValid, handleChange } = useFormAndValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(
+    handleLogin(
       values.email,
       values.password,
     )
@@ -23,6 +24,7 @@ function Login({ onSubmit }) {
         link='signup'
         linkText='Регистрация'
         registrationText='Ещё не зарегистрированы?'
+        isLoading={isLoading}
         onSubmit={handleSubmit}
         isValid={isValid}
       >
@@ -32,6 +34,8 @@ function Login({ onSubmit }) {
             className='form__input'
             value={values.email || ''}
             onChange={handleChange}
+            disabled={isLoading}
+            pattern={EMAIL_PATTERN}
             placeholder='Введите E-mail'
             type='email'
             name='email'
@@ -40,8 +44,8 @@ function Login({ onSubmit }) {
             maxLength='30'
             autoComplete='on'
             required />
-          <span className={`form__error  ${!isValid ? 'form__error_type_active' : ''} `}
-            id="email-error">{error.email}</span>
+          <span className={`form__error  ${errors.email ? 'form__error_type_active' : ''} `}
+            id="email-error">{VALIDATION.email.message}</span>
         </label>
 
         <label className='form__label' htmlFor='password'>
@@ -50,6 +54,8 @@ function Login({ onSubmit }) {
             className='form__input'
             value={values.password || ''}
             onChange={handleChange}
+            disabled={isLoading}
+            pattern={PASSWORD_PATTERN}
             placeholder='Введите пароль'
             type='password'
             name='password'
@@ -59,8 +65,9 @@ function Login({ onSubmit }) {
             autoComplete='off'
             required />
 
-          <span className={`form__error  ${!isValid ? 'form__error_type_active' : ''} `}
-            id="password-error">{error.password}</span>
+          <span className={`form__error  ${errors.password ? 'form__error_type_active' : ''} `}
+            id="password-error">{VALIDATION.password.message}</span>
+
         </label>
       </AuthForm>
     </main>

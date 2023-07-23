@@ -42,6 +42,28 @@
     }
   }
 
+  @media screen and (min-width: 543px) and (max-width: 767px) {
+    .not-found {
+      padding: 329px 0 30px;
+    }
+
+    .not-found__header {
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: 0.07em;
+    }
+
+    .not-found__text {
+      font-size: 12px;
+    }
+
+    .not-found__button {
+      font-size: 12px;
+      margin: 265px 0 0;
+    }
+  }
+
+
   @media screen and (max-width: 544px) {
     .not-found {
       padding: 329px 0 30px;

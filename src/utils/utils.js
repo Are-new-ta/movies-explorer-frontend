@@ -1,27 +1,39 @@
-const formatDuration = (time) => {
-  const hours = Math.trunc(time / 60);
-  const minutes = time % 60;
+import { IMAGES_URL, MAIN_BASE_LOCAL } from './constApi';
+import { SHORT_FILM_DURATION } from './const';
 
-  return `${hours}ч ${minutes}м`;
+const filterMovies = (movies, searchWord, isShort) => {
+  const word = searchWord.toLowerCase().trim();
+  const searchedMovies = movies.filter((movie) => {
+    const ruName = movie.nameRU && movie.nameRU.toLowerCase().trim();
+    const enName = movie.nameEN && movie.nameEN.toLowerCase().trim();
+    return (ruName.match(word)) || (enName && enName.match(word));
+  });
+
+  if (isShort) {
+    return searchedMovies.filter((movie) => movie.duration <= SHORT_FILM_DURATION);
+  }
+
+  return searchedMovies;
 };
 
-export { formatDuration };
+const patternMovies = (movies) => {
+  return movies
+    .map((movie) => ({
+      country: movie.country || 'unknown',
+      director: movie.director || 'unknown',
+      duration: movie.duration || 60,
+      year: movie.year || 2000,
+      description: movie.description || 'unknown',
+      image: `${IMAGES_URL}/${movie.image.url}`,
+      trailerLink: movie.trailerLink,
+      thumbnail: `${IMAGES_URL}/${movie.image.url}`,
+      movieId: movie.id,
+      nameRU: movie.nameRU || 'unknown',
+      nameEN: movie.nameEN || 'unknown',
+    }))
+    .map((movie) => (
+      MAIN_BASE_LOCAL.test(movie.trailerLink) ? movie : { ...movie, trailerLink: movie.image }
+    ));
+};
 
-export const savedMovies = [
-  {
-    country: "США",
-    created_at: "2020-11-23T14:12:21.376Z",
-    description: "В конце 1960-х группа «Роллинг Стоунз», несмотря на все свои мегахиты и сверхуспешные концертные туры, была разорена.",
-    director: "Стивен Кайак ",
-    duration: 48 * 60,
-    id: 1,
-    image: {
-      previewUrl: "https://thumbs.dfs.ivi.ru/storage8/contents/7/0/708be8ca0ca605c4ddc97df63a4373.jpg"
-    },
-    nameEN: "Stones in Exile",
-    nameRU: "33 слова о дизайне",
-    trailerLink: "https://www.youtube.com/watch?v=UXcqcdYABFw",
-    updated_at: "2020-11-23T14:12:21.376Z",
-    year: "2010"
-  }
-];
+export { filterMovies, patternMovies };

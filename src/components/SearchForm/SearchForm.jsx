@@ -1,25 +1,63 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import cn from 'classnames';
 import './SearchForm.css';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import { SearchFormMessage } from '../../utils/const';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
-function SearchForm() {
+function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoading }) {
+  const { pathname } = useLocation();
+  const { values, setValues, handleChange, isValid, setIsValid } = useFormAndValidation();
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    isValid ? handleSubmitSearch(values.searchWord) : showError(SearchFormMessage.EMPTY);
+  };
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      const storageSearchWord = localStorage.getItem('storageSearchWord');
+      storageSearchWord && setValues({ searchWord: storageSearchWord });
+      setIsValid(true);
+    } else {
+      setValues({ searchWord: '' });
+    }
+  }, [pathname]);
+
+  const classNameSearchButton = cn('search__button', {
+    'search__button_disabled': isLoading,
+  })
+
 
   return (
     <section className='search'>
       <div className='search__wapper'>
 
-        <form className='search__row'>
-          <input className='search__input' name='search' placeholder='Фильм' required />
-          <button className='search__button'>Поиск</button>
+        <form
+          className='search__form'
+          name='form-search'
+          onSubmit={handleSubmit}
+          noValidate >
+
+          <input
+            className='search__input'
+            name='searchWord'
+            id='searchWord'
+            type='text'
+            minLength='2'
+            maxLength='30'
+            placeholder='Фильм'
+            value={values.keyWord || ''}
+            onChange={handleChange}
+            disabled={isLoading}
+            required />
+
+          <button className={classNameSearchButton} disabled={isLoading} type='submit' aria-label='Поиск'>Поиск</button>
+
         </form>
 
-        <div className='search__filters'>
-          <div className='filter-checkbox'>
-            <div className='filter-checkbox__wrapper'>
-              <input className='filter-checkbox__input' name='filter-films' id='filter-films' type='checkbox' />
-              <label className='filter-checkbox__label' htmlFor='filter-films' tabIndex="0" />
-            </div>
-            <span className='filter-checkbox__span'>Короткометражки</span>
-          </div>
-        </div>
+        <FilterCheckbox handleCheckbox={handleChangeCheckbox} />
       </div>
 
     </section>
