@@ -1,0 +1,248 @@
+.header-login,
+.header {
+  background-color: #202020;
+  height: 74px;
+  padding: 18px 0;
+  box-sizing: border-box;
+}
+
+.header__content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  width: calc(100% - 28px);
+  margin: 0 auto;
+}
+
+.header-nav__visible {
+  display: none;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-nav__link {
+  position: relative;
+  height: 32px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #FFFFFF;
+  margin: auto 0 0;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header-nav__link :hover {
+  opacity: 0.8;
+}
+
+.header__logo-link {
+  margin-right: auto;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.header-nav__profile-logo {
+  position: relative;
+  width: 100px;
+  height: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #FFFFFF;
+  margin: auto 0 0;
+  padding: 21px 13px 8px 0;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header-nav__profile-logo :hover {
+  opacity: 0.8;
+}
+
+.header-nav__profile-logo::before {
+  content: url(../../images/icon-user.svg);
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #313131;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__singin-link {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  text-decoration: none;
+  transition: opacity .3s linear;
+}
+
+.header__singup-link {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  text-decoration: none;
+  transition: opacity .3s linear;
+}
+
+.header__singin-link:hover,
+.header__singup-link:hover {
+  opacity: 0.7;
+}
+
+.header__singup-link {
+  padding: 5px 0;
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
+.header__singin-link {
+  padding: 5px 12px;
+  color: #000000;
+  background-color: #3DDC84;
+  border-radius: 3px;
+}
+
+.logo {
+  transition: opacity .3s linear;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 650px) and (max-width: 768px) {
+  .header__content {
+    width: calc(100% - 60px);
+    box-sizing: border-box;
+  }
+
+  .header__navigation {
+    gap: 35px;
+  }
+
+  .header__singin-link,
+  .header__singup-link {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .header__singin-link {
+    padding: 8px 21px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .header__content {
+    width: calc(100% - 60px);
+  }
+
+  .header-nav__profile-logo {
+    padding: 15px 13px 8px 0;
+  }
+
+  .header-nav__visible {
+    display: block;
+  }
+
+  .header__navigation {
+    gap: 30px;
+  }
+
+  .header__singin-link,
+  .header__singup-link {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .header__singup-link {
+    padding: 8px 0;
+  }
+
+  .header__singin-link {
+    padding: 8px 24px;
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    background-color: transparent;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    background-color: transparent;
+    padding-left: 100px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    padding: 15px 0;
+  }
+
+  .header-login {
+    padding: 15px 0;
+  }
+
+  .header__singin-link {
+    padding: 8px 21px;
+  }
+
+  .header-nav__visible {
+    display: block;
+  }
+
+  .header__content {
+    max-width: 1280px;
+    width: calc(100% - 140px);
+  }
+
+  .header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    background-color: transparent;
+    padding: 5px 0 0 75px;
+  }
+
+  .header__navigation {
+    gap: 30px;
+  }
+
+  .header-nav__profile-logo {
+    padding: 15px 13px 8px 0;
+  }
+}

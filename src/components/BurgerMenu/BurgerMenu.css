@@ -1,0 +1,115 @@
+.burger-menu {
+  position: fixed;
+  top: 16px;
+  right: 13px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+}
+
+.burger-menu:hover {
+  opacity: 0.7;
+}
+
+.burger-menu__line {
+  width: 22px;
+  height: 2.5px;
+  background-color: #FFFFFF;
+  margin-top: 6px;
+  position: relative;
+}
+
+.burger-menu__line::before {
+  content: "";
+  width: 22px;
+  height: 2.5px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: -7px;
+  left: 0;
+  transition: all 0.5s ease-out;
+}
+
+.burger-menu__line::after {
+  content: "";
+  width: 22px;
+  height: 2.5px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  transition: all 0.5s ease-out;
+}
+
+.burger-menu_close .burger-menu__line {
+  background-color: transparent;
+}
+
+.burger-menu_close>.burger-menu__line::before {
+  width: 22px;
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.burger-menu_close>.burger-menu__line::after {
+  width: 22px;
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.burger_invisible {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .burger-menu_close {
+    padding: 0 0 20px 8px;
+  }
+}
+
+@media screen and (min-width: 680px) and (max-width: 768px) {
+  .burger-menu {
+    position: fixed;
+    top: 15px;
+    right: 33px;
+  }
+
+  .burger-menu__line {
+    width: 28px;
+    height: 3px;
+  }
+
+  .burger-menu__line::before {
+    width: 28px;
+    height: 3px;
+  }
+
+  .burger-menu__line::after {
+    width: 28px;
+    height: 3px;
+  }
+
+  .burger-menu_close {
+    padding: 0 0 0 22px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .burger-menu {
+    right: 30px;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .burger-menu {
+    display: none;
+  }
+}

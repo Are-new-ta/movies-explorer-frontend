@@ -1,0 +1,96 @@
+  .not-found {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 246px 0 60px;
+  }
+
+  .not-found__button {
+    color: #4285F4;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 175px 0 0;
+    transition: opacity .4s linear;
+    cursor: pointer;
+  }
+
+  .not-found__button:hover {
+    opacity: .6;
+  }
+
+  .not-found__header {
+    font-size: 140px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.07em;
+  }
+
+  .not-found__text {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .not-found {
+      padding: 485px 0 222px;
+    }
+
+    .not-found__text {
+      margin-top: 65px;
+    }
+  }
+
+  @media screen and (min-width: 543px) and (max-width: 767px) {
+    .not-found {
+      padding: 329px 0 30px;
+    }
+
+    .not-found__header {
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: 0.07em;
+    }
+
+    .not-found__text {
+      font-size: 12px;
+    }
+
+    .not-found__button {
+      font-size: 12px;
+      margin: 265px 0 0;
+    }
+  }
+
+
+  @media screen and (max-width: 544px) {
+    .not-found {
+      padding: 329px 0 30px;
+    }
+
+    .not-found__header {
+      font-size: 80px;
+      line-height: 97px;
+      letter-spacing: 0.07em;
+    }
+
+    .not-found__text {
+      font-size: 12px;
+    }
+
+    .not-found__button {
+      font-size: 12px;
+      margin: 265px 0 0;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .not-found {
+      padding: 325px 0 0;
+    }
+
+    .not-found__text {
+      margin-top: 65px;
+    }
+  }

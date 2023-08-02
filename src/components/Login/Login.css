@@ -1,0 +1,39 @@
+.form__button-login {
+  margin-top: 251px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.form__button-login:disabled {
+  color: #C2C2C2;
+  background: #F8F8F8;
+  cursor: auto;
+}
+
+.form__button-login:disabled:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width: 628px) and (max-width: 767px) {
+  .form__button-login {
+    margin-top: 160px;
+    padding: 13px 15px 15px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .form__button-login {
+    margin-top: 160px;
+    padding: 13px 15px 15px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .form__button-login {
+    margin-top: 160px;
+  }
+}
