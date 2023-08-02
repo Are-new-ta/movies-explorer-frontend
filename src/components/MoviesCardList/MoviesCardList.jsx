@@ -76,7 +76,10 @@ function MoviesCardList({ movies }) {
         {isMoreButton
           ?
           <div className='cards__more'>
-            <button type='button' className='cards__more-button button' onClick={handleMoreButtonClick}>Ещё</button>
+            <button
+              type='button'
+              className='cards__more-button button'
+              onClick={handleMoreButtonClick}>Ещё</button>
           </div>
           : ''}
       </div>
@@ -85,3 +88,9 @@ function MoviesCardList({ movies }) {
 };
 
 export default MoviesCardList;
+
+
+
+
+
+

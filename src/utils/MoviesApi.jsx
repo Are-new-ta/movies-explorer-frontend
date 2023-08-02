@@ -13,6 +13,7 @@ class MoviesApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
+  // запрос карточек с сервера
   getMovies() {
     return fetch(this._baseUrl, {
       method: 'GET',

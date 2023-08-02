@@ -37,7 +37,7 @@ function App() {
       Promise.all([MainApi.getUserInfo(), MainApi.getSavedMovies()])
         .then(([me, apiSavedMovies]) => {
           setCurrentUser(me);
-          setSavedMovies(apiSavedMovies.filter((film) => film.owner === me._id));
+          setSavedMovies(apiSavedMovies.filter((film) => film.owner._id === me._id));
         })
         .catch(async (err) => {
           const { message } = await err.json();
@@ -60,25 +60,25 @@ function App() {
           setCurrentUser(res);
           setLoggedIn(true);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
           signOut();
         });
     } else setLoggedIn(false);
   }, [navigate]);
 
-  const closeAllPopups = () => {
+  function closeAllPopups() {
     setInfoTooltipPopupOpen(false);
     setIsOpenMenu(false);
   }
 
-  const handleOverlayClick = (evt) => {
+  function handleOverlayClick(evt) {
     if (evt.target === evt.currentTarget) {
       closeAllPopups();
     }
   };
 
-  const handleLogin = (email, password) => {
+  function handleLogin(email, password) {
     setIsLoading(true);
     MainApi
       .login(email, password)
@@ -91,8 +91,8 @@ function App() {
         });
         setInfoTooltipPopupOpen(true);
       })
-      .catch(async (err) => {
-        const { message } = await err.json();
+      .catch(async (error) => {
+        const { message } = await error.json();
         setTooltipSettings({
           message,
           isSuccess: false,
@@ -104,15 +104,15 @@ function App() {
       });
   }
 
-  const handleRegister = (name, email, password) => {
+  function handleRegister(name, email, password) {
     setIsLoading(true);
     MainApi
       .register(name, email, password)
       .then(() => {
         handleLogin(email, password);
       })
-      .catch(async (err) => {
-        const { message } = await err.json();
+      .catch(async (error) => {
+        const { message } = await error.json();
         setTooltipSettings({
           message,
           isSuccess: false,
@@ -124,7 +124,7 @@ function App() {
       });
   }
 
-  const signOut = () => {
+  function signOut() {
     localStorage.clear();
     setLoggedIn(false);
     setCurrentUser({});
@@ -133,6 +133,7 @@ function App() {
     closeAllPopups();
     navigate('/');
   }
+
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser, savedMovies, setSavedMovies }}>
       <div className='app'>
@@ -146,59 +147,30 @@ function App() {
 
           <Route path='/' element={
             <>
-              <Header
-                loggedIn={loggedIn}
-                isOpenMenu={isOpenMenu}
-                setIsOpenMenu={setIsOpenMenu}
-                handleOverlayClick={handleOverlayClick} />
+              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
               <Main />
               <Footer />
-
-            </>
-          } />
+            </>} />
 
           <Route path='/movies' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header
-                loggedIn={loggedIn}
-                isOpenMenu={isOpenMenu}
-                setIsOpenMenu={setIsOpenMenu}
-                handleOverlayClick={handleOverlayClick}
-              />
+              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
               <Movies />
               <Footer />
-            </ProtectedRoute>
-          } />
+            </ProtectedRoute>} />
 
           <Route path='/saved-movies' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header
-                loggedIn={loggedIn}
-                isOpenMenu={isOpenMenu}
-                setIsOpenMenu={setIsOpenMenu}
-                handleOverlayClick={handleOverlayClick}
-              />
+              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
               <SavedMovies />
               <Footer />
-            </ProtectedRoute>
-
-          } />
+            </ProtectedRoute>} />
 
           <Route path='/profile' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header
-                loggedIn={loggedIn}
-                isOpenMenu={isOpenMenu}
-                setIsOpenMenu={setIsOpenMenu}
-                handleOverlayClick={handleOverlayClick}
-              />
-              <Profile
-                signOut={signOut}
-                setTooltipSettings={setTooltipSettings}
-                setInfoTooltipPopupOpen={setInfoTooltipPopupOpen}
-              />
-            </ProtectedRoute>
-          } />
+              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
+              <Profile signOut={signOut} setTooltipSettings={setTooltipSettings} setInfoTooltipPopupOpen={setInfoTooltipPopupOpen} />
+            </ProtectedRoute>} />
 
           <Route path='*' element={<NotFound />} />
 
@@ -208,8 +180,7 @@ function App() {
           isOpen={isInfoTooltipPopupOpen}
           onClose={closeAllPopups}
           tooltipSettings={tooltipSettings}
-          onOverlayClick={handleOverlayClick}
-        />
+          onOverlayClick={handleOverlayClick} />
 
       </div>
     </CurrentUserContext.Provider>

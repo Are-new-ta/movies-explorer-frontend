@@ -1,5 +1,11 @@
 import { MAIN_BASE_LOCAL } from './constApi';
 
+// для локального тестирования
+// MAIN_BASE_LOCAL = 'http://localhost:3001';
+
+// для BM тестирования
+// MAIN_BASE_LOCAL = 'https://api.mesto.annausova.nomoredomains.work';
+
 class MainApi {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -13,6 +19,7 @@ class MainApi {
     return Promise.reject(res);
   }
 
+  // запрос регистрации (name, email, password)
   register(name, email, password) {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
@@ -23,6 +30,7 @@ class MainApi {
     }).then(this._checkResponse);
   };
 
+  // запрос авторизации (email, password)
   login(email, password) {
     return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
@@ -43,12 +51,14 @@ class MainApi {
     }).then(this._checkResponse);
   };
 
+  // получение данных пользователя 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
+  // изменение профиля (name, email)
   changeUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -57,12 +67,16 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
+  // получение сохраненных фильмов
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
+  // сохранить фильм 
+  // (country, director, duration, year, description, image, 
+  //  trailerLink, thumbnail, coumovieId, movieId, nameRU, nameEN)
   saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
@@ -71,6 +85,7 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
+  // удалить фильм (movieId)
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",

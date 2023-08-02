@@ -11,7 +11,6 @@ function MoviesCard({ movie, saveStatus }) {
   const [isSaved, setIsSaved] = useState(false);
   const [mainApiId, setMainApiId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
   const { pathname } = useLocation();
   const { nameRU, trailerLink, thumbnail, duration } = movie;
 
@@ -26,7 +25,7 @@ function MoviesCard({ movie, saveStatus }) {
     setMainApiId(saveStatus.id);
   }, [saveStatus]);
 
-  const handleSaveMovie = () => {
+  function handleSaveMovie() {
     setIsLoading(true);
 
     MainApi.saveMovie(movie)
@@ -34,11 +33,11 @@ function MoviesCard({ movie, saveStatus }) {
         setSavedMovies([...savedMovies, data]);
         setIsSaved(true);
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
   };
 
-  const handleDeleteMovie = () => {
+  function handleDeleteMovie() {
     setIsLoading(true);
 
     MainApi.deleteMovie(mainApiId)
@@ -48,14 +47,13 @@ function MoviesCard({ movie, saveStatus }) {
         }));
         setIsSaved(false);
       })
-      .catch((err) => console.log(err))
+      .catch((error) => console.log(error))
       .finally(() => setIsLoading(false));
   };
 
   const buttonClassNames = cn('card__button-like', {
     'card__button-like_type_saved': pathname === '/movies' && isSaved,
     'card__button-like_type_delete': pathname === '/saved-movies',
-    //новый код, надо проработать этот стиль
     'card__button_disabled': isLoading,
   });
 
@@ -66,10 +64,7 @@ function MoviesCard({ movie, saveStatus }) {
         className='card__link'
         target='_blank'
         rel='noreferrer'>
-
-        <img src={thumbnail}
-          className='card__img'
-          alt={nameRU} />
+        <img src={thumbnail} className='card__img' alt={nameRU} />
       </a>
 
       <div className='card__info'>

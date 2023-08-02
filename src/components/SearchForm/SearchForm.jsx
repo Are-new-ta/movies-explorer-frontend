@@ -8,9 +8,9 @@ import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoading }) {
   const { pathname } = useLocation();
-  const { values, setValues, handleChange, isValid, setIsValid } = useFormAndValidation();
+  const { values, setValues, handleChange, isValid, resetForm } = useFormAndValidation();
 
-  const handleSubmit = (evt) => {
+  function handleSubmit(evt) {
     evt.preventDefault();
     isValid ? handleSubmitSearch(values.searchWord) : showError(SearchFormMessage.EMPTY);
   };
@@ -19,7 +19,6 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
     if (pathname === '/movies') {
       const storageSearchWord = localStorage.getItem('storageSearchWord');
       storageSearchWord && setValues({ searchWord: storageSearchWord });
-      setIsValid(true);
     } else {
       setValues({ searchWord: '' });
     }
@@ -28,6 +27,10 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
   const classNameSearchButton = cn('search__button', {
     'search__button_disabled': isLoading,
   })
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
 
   return (
@@ -48,7 +51,7 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
             minLength='2'
             maxLength='30'
             placeholder='Фильм'
-            value={values.keyWord || ''}
+            value={values.searchWord || ''}
             onChange={handleChange}
             disabled={isLoading}
             required />

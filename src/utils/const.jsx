@@ -35,18 +35,15 @@ export const Length = {
   DESKTOP: 12,
 }
 
-// export const USERNAME_PATTERN = "/[^A-Za-z0-9]+/{2,30}";
-// export const EMAIL_PATTERN = "([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)";
-// export const PASSWORD_PATTERN = "(?=.*[A-z])(?=.*\\d)(?=.*[!@#$%^&*])(?=.{8,}).*";
-
-export const USERNAME_PATTERN = "[A-я-\\s]{2,30}";
-export const EMAIL_PATTERN = "[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+";
-export const PASSWORD_PATTERN = "(?=.*[A-z])(?=.*\\d)(?=.*[!@#$%^&*])(?=.{6,}).*";
+export const USERNAME_PATTERN = '[А-Яа-я a-zA-Z0-9]{2,30}';
+export const EMAIL_PATTERN = '[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+';
+export const PASSWORD_PATTERN = '(?=.*[A-z])(?=.*\\d)(?=.*[!@#$%^&*])(?=.{6,}).*';
+export const HTTP_PATTERN = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
 
 
 export const VALIDATION = {
   username: {
-    message: 'Имя может содержать только кириллицу, латиницу, пробел или дефис',
+    message: 'Имя может содержать только кириллицу, латиницу, цифры или пробел',
   },
   email: {
     message: 'Введите корректный Email-адрес',

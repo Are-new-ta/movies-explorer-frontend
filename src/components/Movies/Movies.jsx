@@ -15,18 +15,26 @@ function Movies() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // массив для хранения данных о всех фильмах
   const storageAllMovies = JSON.parse(localStorage.getItem('storageAllMovies')) || [];
 
+  // Загрузка списка всех фильмов в начале работы страницы единожды
   useEffect(() => {
+    // storageSearchResult обрабатывает входящие фильмы и их колество
     const storageSearchResult = JSON.parse(localStorage.getItem('storageSearchResult')) || [];
+
+    // storageIsShort обрабатывает входящие фильмы: short есть или нет
     const storageIsShort = JSON.parse(localStorage.getItem('storageIsShort')) || false;
+
+    // storageSearchWord  обрабатывает слово, которое было введено в поисковую строку
     const storageSearchWord = localStorage.getItem('storageSearchWord') || '';
+
     storageSearchResult && setIsSearchedMovies(storageSearchResult);
     storageIsShort && setIsShortMovies(storageIsShort);
     storageSearchWord && setSearchWord(storageSearchWord);
   }, []);
 
-  const getFilteredMovies = (searchWord, isShortMovies) => {
+  function getFilteredMovies(searchWord, isShortMovies) {
     if (!storageAllMovies.length) {
       setIsLoading(true);
 
@@ -52,7 +60,7 @@ function Movies() {
     }
   };
 
-  const handleFilterResult = (movies) => {
+  function handleFilterResult(movies) {
     setIsSearchedMovies(movies);
     localStorage.setItem('storageSearchResult', JSON.stringify(movies));
     movies.length === 0
@@ -60,19 +68,19 @@ function Movies() {
       : setErrorMessage('');
   }
 
-  const handleSubmitSearch = (searchWord) => {
+  function handleSubmitSearch(searchWord) {
     setSearchWord(searchWord);
     localStorage.setItem('storageSearchWord', searchWord);
     getFilteredMovies(searchWord, isShortMovies);
   };
 
-  const handleChangeCheckbox = (isChecked) => {
+  function handleChangeCheckbox(isChecked) {
     setIsShortMovies(isChecked);
     localStorage.setItem('storageIsShort', isChecked);
     getFilteredMovies(searchWord, isChecked);
   };
 
-  const renderMoviesSection = () => {
+  function renderMoviesSection() {
     if (errorMessage.length) { return <p className='cards__search-message'>{errorMessage}</p>; }
     return (<MoviesCardList movies={isSearchedMovies} />)
   };
@@ -91,3 +99,4 @@ function Movies() {
 };
 
 export default Movies;
+

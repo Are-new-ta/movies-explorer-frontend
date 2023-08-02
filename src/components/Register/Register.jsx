@@ -25,10 +25,10 @@ function Register({ handleRegister, isLoading }) {
         link='signin'
         linkText='Войти'
         registrationText='Уже зарегистрированы?'
-        pattern={USERNAME_PATTERN}
         isLoading={isLoading}
         onSubmit={handleSubmit}
-        isValid={isValid} >
+        isValid={isValid}
+      >
 
         <label className='form__label' htmlFor='name'>
           Имя

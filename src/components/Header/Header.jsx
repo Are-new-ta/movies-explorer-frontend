@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import './Header.css';
@@ -6,19 +5,16 @@ import logo from '../../images/logo.svg';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Navigation from '../Navigation/Navigation';
 
-function Header() {
+function Header({ loggedIn, isOpenMenu, setIsOpenMenu, handleOverlayClick }) {
 
-  const [loggedIn, setLoggedIn] = useState(false); //для проверки разных вариантов Header менять true/false
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
-  // console.log("loggedIn", loggedIn)
 
   return (
     <header
       className={loggedIn ? 'header-login' : 'header'}>
       <div className='header__content'>
+
         <BurgerMenu
           loggedIn={loggedIn}
           isOpenMenu={isOpenMenu}
@@ -45,7 +41,8 @@ function Header() {
 
             <Navigation
               isOpenMenu={isOpenMenu}
-              setIsOpenMenu={setIsOpenMenu} />
+              setIsOpenMenu={setIsOpenMenu}
+              handleOverlayClick={handleOverlayClick} />
           </>
           :
           <nav className='header__navigation'>
@@ -59,3 +56,8 @@ function Header() {
 };
 
 export default Header;
+
+
+
+
+

@@ -18,7 +18,7 @@
   right: 0;
   width: 100%;
   max-width: 520px;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 144px 10px 46px;
   background-color: #202020;
   box-sizing: border-box;
@@ -69,7 +69,8 @@
   letter-spacing: 0;
   text-align: center;
   color: #FFFFFF;
-  margin: 425px 0 0;
+  margin: 430px 0 0;
+  /* margin: 425px 0 0; */
   padding: 0px 50px 0px 25px;
   text-decoration: none;
   background-color: transparent;
@@ -78,7 +79,8 @@
 .navigation__profile-logo::before {
   content: url(../../images/icon-user.svg);
   position: absolute;
-  bottom: 3px;
+  /* bottom: 3px; */
+  bottom: 7px;
   right: 38px;
   width: 30px;
   height: 30px;

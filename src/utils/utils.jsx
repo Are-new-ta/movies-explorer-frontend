@@ -1,5 +1,5 @@
-import { IMAGES_URL, MAIN_BASE_LOCAL } from './constApi';
-import { SHORT_FILM_DURATION } from './const';
+import { IMAGES_URL } from './constApi';
+import { SHORT_FILM_DURATION, HTTP_PATTERN } from './const';
 
 const filterMovies = (movies, searchWord, isShort) => {
   const word = searchWord.toLowerCase().trim();
@@ -18,6 +18,7 @@ const filterMovies = (movies, searchWord, isShort) => {
 
 const patternMovies = (movies) => {
   return movies
+
     .map((movie) => ({
       country: movie.country || 'unknown',
       director: movie.director || 'unknown',
@@ -32,7 +33,7 @@ const patternMovies = (movies) => {
       nameEN: movie.nameEN || 'unknown',
     }))
     .map((movie) => (
-      MAIN_BASE_LOCAL.test(movie.trailerLink) ? movie : { ...movie, trailerLink: movie.image }
+      HTTP_PATTERN.test(movie.trailerLink) ? movie : { ...movie, trailerLink: movie.image }
     ));
 };
 

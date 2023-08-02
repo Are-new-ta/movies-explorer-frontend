@@ -1,24 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useEffect } from "react";
-import useFormAndValidation from "../../hooks/useFormAndValidation";
 import cn from 'classnames';
 import './AuthForm.css';
 import Preloader from "../Preloader/Preloader";
 import logo from '../../images/logo.svg';
 
-function AuthForm({ nameForm, title, buttonText, link, linkText, registrationText, children, onSubmit, isLoading }) {
+function AuthForm({ nameForm, title, buttonText, link, linkText, registrationText, children, onSubmit, isLoading, isValid }) {
 
-  const { isValid, resetForm } = useFormAndValidation();
   const { pathname } = useLocation();
   const buttonSubmitClassNames = cn('form__button-submit', {
     'form__button-login': pathname === '/signin',
     'form__button-register': pathname === '/signup',
-    'form__button-submit_disabled': !isValid || isLoading,
   });
-
-  useEffect(() => {
-    resetForm();
-  }, [resetForm]);
 
   return (
     <section className='auth-form'>
