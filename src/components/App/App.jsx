@@ -147,29 +147,48 @@ function App() {
 
           <Route path='/' element={
             <>
-              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
+              <Header
+                loggedIn={loggedIn}
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+                handleOverlayClick={handleOverlayClick} />
               <Main />
               <Footer />
             </>} />
 
           <Route path='/movies' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
+              <Header
+                loggedIn={loggedIn}
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+                handleOverlayClick={handleOverlayClick} />
               <Movies />
               <Footer />
             </ProtectedRoute>} />
 
           <Route path='/saved-movies' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
+              <Header
+                loggedIn={loggedIn}
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+                handleOverlayClick={handleOverlayClick} />
               <SavedMovies />
               <Footer />
             </ProtectedRoute>} />
 
           <Route path='/profile' element={
             <ProtectedRoute loggedIn={loggedIn} >
-              <Header loggedIn={loggedIn} isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOverlayClick={handleOverlayClick} />
-              <Profile signOut={signOut} setTooltipSettings={setTooltipSettings} setInfoTooltipPopupOpen={setInfoTooltipPopupOpen} />
+              <Header
+                loggedIn={loggedIn}
+                isOpenMenu={isOpenMenu}
+                setIsOpenMenu={setIsOpenMenu}
+                handleOverlayClick={handleOverlayClick} />
+              <Profile
+                signOut={signOut}
+                setTooltipSettings={setTooltipSettings}
+                setInfoTooltipPopupOpen={setInfoTooltipPopupOpen} />
             </ProtectedRoute>} />
 
           <Route path='*' element={<NotFound />} />
