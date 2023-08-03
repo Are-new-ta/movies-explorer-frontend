@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import './Profile.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Preloader from '../Preloader/Preloader';
@@ -14,7 +14,23 @@ function Profile({ setTooltipSettings, setInfoTooltipPopupOpen, signOut }) {
   const [currentError, setCurrentError] = useState('');
   const [isEdit, setIsEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { values, handleChange, errors, isValid, resetForm } = useFormAndValidation();
+  const [defaultName, setDefaultName] = useState(userData.name);
+  const [defaultEmail, setDefaultEmail] = useState(userData.email);
+  const [isValidEditForm, setIsValidEditForm] = useState(false);
+  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormAndValidation();
+
+  useEffect(() => {
+    setIsValidEditForm(isValid && (defaultEmail !== values.email || defaultName !== values.name))
+  }, [values]);
+
+  //заполненные поля при открытии
+  useEffect(() => {
+    if (isEdit) {
+      setValues({ ...values, 'username': userData.name, 'email': userData.email })
+      setDefaultName(userData.name)
+      setDefaultEmail(userData.email)
+    }
+  }, [isEdit]);
 
   const initialValues = {
     username: userData.name,

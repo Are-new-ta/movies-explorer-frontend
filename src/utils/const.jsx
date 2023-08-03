@@ -25,8 +25,8 @@ export const statusMessage = {
 
 export const WindowWidth = {
   MOBILE: 480,
-  TABLET: 1010,
-  DESKTOP: 1280,
+  TABLET: 768,
+  DESKTOP: 1024,
 };
 
 export const Length = {
@@ -36,9 +36,9 @@ export const Length = {
 }
 
 export const USERNAME_PATTERN = '[А-Яа-я a-zA-Z0-9]{2,30}';
-export const EMAIL_PATTERN = '[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+';
+export const EMAIL_PATTERN = '[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+';
 export const PASSWORD_PATTERN = '(?=.*[A-z])(?=.*\\d)(?=.*[!@#$%^&*])(?=.{6,}).*';
-export const HTTP_PATTERN = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+export const HTTP_PATTERN = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$/;
 
 
 export const VALIDATION = {

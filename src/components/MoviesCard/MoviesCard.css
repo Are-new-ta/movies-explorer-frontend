@@ -60,7 +60,7 @@
   background-image: none;
 }
 
-.card:hover .card__button-like_type_delete {
+.card__button-like_type_delete {
   background-image: url('../../images/d4.svg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +72,6 @@
   opacity: 0.8;
 }
 
-/* new style */
 .card__button_disabled {
   cursor: default;
 }
