@@ -48,7 +48,7 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
             name='searchWord'
             id='searchWord'
             type='text'
-            minLength='2'
+            minLength='1'
             maxLength='30'
             placeholder='Фильм'
             value={values.searchWord || ''}

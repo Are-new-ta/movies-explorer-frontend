@@ -27,6 +27,8 @@
    width: 100%;
    max-width: 396px;
    margin: 360px auto 0;
+   /* justify-content: center;
+   align-items: center; */
  }
 
  .profile__line {
@@ -61,7 +63,6 @@
    outline: 1px solid #4285f4;
  }
 
- .profile__submit-button,
  .profile__edit-button {
    display: inline-flex;
    align-self: center;
@@ -82,8 +83,35 @@
    opacity: 0.8;
  }
 
+ .profile__submit-button {
+   width: 296px;
+   text-align: center;
+   align-self: center;
+   margin-top: auto;
+   padding: 8px;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 15px;
+   color: #FFFFFF;
+   background: #4285F4;
+   border: none;
+   border-radius: 3px;
+   transition: opacity .3s linear;
+   cursor: pointer;
+ }
+
  .profile__submit-button:hover {
    opacity: 0.8;
+ }
+
+ .profile__submit-button:disabled {
+   color: #C2C2C2;
+   background: #F8F8F8;
+   cursor: auto;
+ }
+
+ .profile__submit-button:disabled:hover {
+   opacity: 1;
  }
 
  .profile__link {
