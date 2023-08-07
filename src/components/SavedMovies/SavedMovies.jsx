@@ -21,8 +21,7 @@ function SavedMovies() {
     setMovies(filteredMovies);
   };
 
-  //загрузка сохраненных фильмов и getFilteredMovies()
-  useEffect(() => {
+    useEffect(() => {
     setMovies(savedMovies);
     getFilteredMovies(searchParams.searchWord, searchParams.isShort);
     !savedMovies.length ? setErrorMessage(SearchFormMessage.NOT_SAVED) : setErrorMessage('');
