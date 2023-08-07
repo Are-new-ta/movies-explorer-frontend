@@ -23,7 +23,7 @@ export const statusMessage = {
   BAD_REQUEST: 'Что-то пошло не так.',
 }
 
-//ширина экрана
+//используемая ширина экрана
 export const WindowWidth = {
   MOBILE: 480,
   TABLET: 900,
