@@ -26,7 +26,7 @@ export const statusMessage = {
 //ширина экрана
 export const WindowWidth = {
   MOBILE: 480,
-  TABLET: 768,
+  TABLET: 900,
   DESKTOP: 1024,
 };
 
