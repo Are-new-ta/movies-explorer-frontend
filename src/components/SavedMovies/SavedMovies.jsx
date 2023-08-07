@@ -21,6 +21,7 @@ function SavedMovies() {
     setMovies(filteredMovies);
   };
 
+  //загрузка сохраненных фильмов и getFilteredMovies()
   useEffect(() => {
     setMovies(savedMovies);
     getFilteredMovies(searchParams.searchWord, searchParams.isShort);

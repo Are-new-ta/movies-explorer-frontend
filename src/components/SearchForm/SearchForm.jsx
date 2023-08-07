@@ -15,6 +15,7 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
     isValid ? handleSubmitSearch(values.searchWord) : showError(SearchFormMessage.EMPTY);
   };
 
+  //при переходе на /movies сохраняем поисковое слово и устанавливаем его в инпут
   useEffect(() => {
     if (pathname === '/movies') {
       const storageSearchWord = localStorage.getItem('storageSearchWord');
