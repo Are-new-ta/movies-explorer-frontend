@@ -23,7 +23,7 @@ function Profile({ setTooltipSettings, setInfoTooltipPopupOpen, signOut }) {
     setIsValidEditForm(isValid && (defaultEmail !== values.email || defaultName !== values.name))
   }, [values]);
 
-  //заполненные поля при открытии
+  //заполненные полей формы при открытии
   useEffect(() => {
     if (isEdit) {
       setValues({ ...values, 'username': userData.name, 'email': userData.email })

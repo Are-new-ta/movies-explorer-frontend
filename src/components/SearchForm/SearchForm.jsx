@@ -8,7 +8,7 @@ import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoading }) {
   const { pathname } = useLocation();
-  const { values, setValues, handleChange, isValid, resetForm } = useFormAndValidation();
+  const { values, setValues, handleChange, isValid } = useFormAndValidation();
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -27,11 +27,6 @@ function SearchForm({ handleSubmitSearch, handleChangeCheckbox, showError, isLoa
   const classNameSearchButton = cn('search__button', {
     'search__button_disabled': isLoading,
   })
-
-  useEffect(() => {
-    resetForm();
-  }, [resetForm]);
-
 
   return (
     <section className='search'>

@@ -23,12 +23,14 @@ export const statusMessage = {
   BAD_REQUEST: 'Что-то пошло не так.',
 }
 
+//ширина экрана
 export const WindowWidth = {
   MOBILE: 480,
   TABLET: 768,
   DESKTOP: 1024,
 };
 
+//отображаемое количество фильмов на экране
 export const Length = {
   MOBILE: 5,
   TABLET: 8,
