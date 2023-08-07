@@ -7,7 +7,7 @@ import { SearchFormMessage } from '../../utils/const';
 
 function SavedMovies() {
   const { savedMovies } = useContext(CurrentUserContext);
-   const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [searchParams, setSearchParams] = useState({
     searchWord: '',

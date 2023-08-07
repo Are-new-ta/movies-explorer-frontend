@@ -5,7 +5,7 @@
  https://disk.yandex.ru/d/1APvjJQVhzJlTw 
 
  ### Ссылка на пул реквест:
-https://github.com/Are-new-ta/movies-explorer-frontend/pull/4
+https://github.com/Are-new-ta/movies-explorer-frontend/pull/5
 
 ### Ссылки на проект
 
